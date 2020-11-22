@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getMaxLength = void 0;
 // import { FontRate } from './script';
 function getMaxLength(arr, fontRate) {
     return arr.reduce(function (length, item) {

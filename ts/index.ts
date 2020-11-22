@@ -34,15 +34,6 @@ export function delint(sourceFile: ts.SourceFile) {
 
     ts.forEachChild(node, delintNode);
   }
-
-  // function report(node: ts.Node, message: string) {
-  //   const { line, character } = sourceFile.getLineAndCharacterOfPosition(
-  //     node.getStart()
-  //   );
-  //   console.log(
-  //     `${sourceFile.fileName} (${line + 1},${character + 1}): ${message}`
-  //   );
-  // }
 }
 
 const fileNames = process.argv.slice(2);
@@ -58,5 +49,5 @@ fileNames.forEach(fileName => {
   // delint it
   delint(sourceFile);
   list.sort((a, b) => b.count - a.count);
-  console.log(list.slice(0, 10));
+  console.log(list.slice(0, 10).map(item => item.name +"："+item.count).join('\n'));
 });
